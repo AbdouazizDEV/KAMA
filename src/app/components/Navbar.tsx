@@ -8,6 +8,7 @@ import * as Avatar from '@radix-ui/react-avatar';
 import { AuthModal } from './AuthModal';
 import { toast } from 'sonner';
 import { useAuth } from '../../presentation/hooks/useAuth';
+import kamaLogo from '@/images/KAMAlogo1.jpeg';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,16 +54,12 @@ export function Navbar() {
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-[#00A86B] rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform">
-              K
-            </div>
-            <span className={cn(
-              "font-montserrat font-bold text-2xl tracking-tight",
-              scrolled || !isHome ? "text-[#0A0E27]" : "text-white"
-            )}>
-              KAMA
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img
+              src={kamaLogo}
+              alt="KAMA — logo"
+              className="h-12 w-auto sm:h-14 md:h-16 object-contain rounded-lg group-hover:opacity-90 transition-opacity"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -148,7 +145,11 @@ export function Navbar() {
               className="fixed inset-0 bg-white z-[60] flex flex-col"
             >
               <div className="p-5 flex items-center justify-between border-b border-gray-100">
-                <span className="font-montserrat font-bold text-2xl text-[#0A0E27]">KAMA</span>
+                <img
+                  src={kamaLogo}
+                  alt="KAMA — logo"
+                  className="h-14 w-auto object-contain rounded-lg"
+                />
                 <button onClick={() => setMobileMenuOpen(false)} className="p-2 bg-gray-100 rounded-full">
                   <X className="w-6 h-6 text-gray-600" />
                 </button>
